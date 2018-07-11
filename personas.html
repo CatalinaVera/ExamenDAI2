@@ -59,10 +59,10 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <a href="index.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home"></i>HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>PERSONAS</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>EMPRESAS</a>
+    <a href="loginPersonas.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>PERSONAS</a>
+    <a href="loginEmpresas.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>EMPRESAS</a>
+    <a href="funcionarios.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-card"></i>FUNCIONARIOS</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACTO</a>
-  
   </div>
 
   <!-- Navbar on small screens -->
@@ -77,23 +77,58 @@ body, html {
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
     <img src="ESCUDO.png" >
-    <span class="w3-center w3-padding-large w3-red w3-xlarge w3-wide w3-animate-opacity">INSTITUTO DE <span class="w3-hide-small">SALUD</span> PÚBLICA</span>
+    <span class="w3-center w3-padding-large w3-red w3-xlarge w3-wide w3-animate-opacity">INSTITUTO DE <span class="w3-hide-small">SALUD</span> PÚBLICA DE CHILE</span>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
 <div class="w3-container" id="contact">
-    <h2>CONTACTO</h2>
-    <p>Si tiene dudas o molestias no dude en contactarnos.</p>
-    <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Av. Marathon 1000 Ñuñoa, Santiago<br>
-    <i class="fa fa-phone w3-text-red" style="width:30px"></i> Teléfono: (56 2) 257556 01<br>
-    <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: contacto@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nombre" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Mensaje" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">Enviar Mensaje</button></p>
+    <h2>REGISTRO PERSONAS</h2>
+    <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <div class="w3-center" style="white-space:nowrap;">
+        <span class="w3-center w3-padding-large w3-red w3-xlarge w3-wide w3-animate-opacity">INGRESE LOS SIGUIENTES DATOS: <span class="w3-hide-small"></span> </span>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtRut" type="text" placeholder="Run(12345698-9)">
+            </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtNombre" type="text" placeholder="Nombre">
+            </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtCorreo" type="text" placeholder="Email (correo@correo.cl)">
+            </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-home" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtDireccion" type="text" placeholder="Dirección">
+            </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtTelefono" type="text" placeholder="Teléfono ((+569)12345689)">
+            </div>
+        </div>
+         <div class="w3-row w3-section">
+          <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user-secret" style="color:red"></i></div>
+            <div class="w3-rest">
+              <input class="w3-input w3-border" name="txtClave" type="text" placeholder="Clave">
+            </div>
+        </div>
+        <p class="w3-center">
+        <button class="w3-button w3-section w3-red w3-ripple"> Enviar </button>
+        </p>
     </form>
+
   </div>
 
 <!-- Footer -->

@@ -82,54 +82,34 @@ body, html {
   </div>
 </div>
 
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">NOSOTROS</h3>
-  <p class="w3-center w3-large">El Instituto de Salud Pública de Chile (ISP) es un servicio público, que posee autonomía de gestión y está dotado de personalidad jurídica y de patrimonio propio, dependiendo del Ministerio de Salud para la aprobación de sus políticas, normas y planes generales de actividades, así como en la supervisión de su ejecución.</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-font-awesome w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">MISIÓN</p>
-      <p>Contribuir a la salud pública del país, como la Institución Científico-Técnica del Estado,  que desarrolla con calidad las funciones de Referencia, Vigilancia, Autorización y Fiscalización en el ámbito de sus competencias.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">VISIÓN</p>
-      <p>En el 2018 seremos la Institución de excelencia Científico-Técnica, de Salud Pública del Estado de Chile, certificada, acreditada y reconocida a nivel nacional e internacional.</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">VALORES</p>
-      <p>TRADICIÓN: Fuimos pioneros y llegaremos a ser líderes en Salud Pública.
+<!-- Login -->
 
-            VOCACIÓN: Institutanos por una Salud Pública digna y de calidad.
+<div >
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+  
+      <div class="w3-center"><br>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
 
-            COMPROMISO: Funcionarios y funcionarias comprometidos con la misión institucional.
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b>Rut</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="textRut" placeholder="(12345678-9)" name="usrname" required>
+          <label><b>Clave</b></label>
+          <input class="w3-input w3-border" type="text" placeholder="Ingrese Clave" name="psw" required>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Ingresar</button>
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Recuerdame
+        </div>
+      </form>
 
-            LIDERAZGO: Somos personas con visión de futuro en Salud Pública.
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey" style="text-align: right;">
+         <a href="empresas.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-address-book-o"></i>Registrarse</a>
+      </div>
 
-            EXCELENCIA:  A la vanguardia en Salud Pública de calidad.</p>
     </div>
-    <div class="w3-quarter">
-      <i class="fa fa-file-text w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">HISTORIA</p>
-      <p>El actual Instituto de Salud Pública de Chile (ISP) remonta sus raíces históricas a 1892 cuando, con fecha 15 de septiembre de ese año, fue creado por Ley el Instituto de Higiene, bajo la dirección del Dr. Federico Puga Borne, quien fuera varias veces Ministro de Justicia e Instrucción Pública y de Interior.</p>
-    </div>
-</div>
-<!-- Container (Contact Section) -->
-<div class="w3-container" id="contact">
-    <h2>CONTACTO</h2>
-    <p>Si tiene dudas o molestias no dude en contactarnos.</p>
-    <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Av. Marathon 1000 Ñuñoa, Santiago<br>
-    <i class="fa fa-phone w3-text-red" style="width:30px"></i> Teléfono: (56 2) 257556 01<br>
-    <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: contacto@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nombre" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Mensaje" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">Enviar Mensaje</button></p>
-    </form>
   </div>
+</div>
+
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">

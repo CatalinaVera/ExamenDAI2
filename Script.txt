@@ -202,6 +202,21 @@ PRIMARY KEY (id_resultado))
 
 ENGINE=InnoDB;
 
+CREATE TABLE mensaje(
+
+id_mensaje INT NOT NULL AUTO_INCREMENT,
+nombre_mensaje VARCHAR(30) NOT NULL,
+
+correo_mensaje VARCHAR(50) NOT NULL,
+
+mensaje_mensaje VARCHAR(200) NOT NULL,
+
+PRIMARY KEY (id_mensaje))
+
+ENGINE=InnoDB;
+
+
+
 
 
 ALTER TABLE `resultado`
@@ -247,9 +262,20 @@ ON UPDATE NO ACTION;
 
 
 
-INSERT INTO ANALISIS VALUES
-(1,'Deteccion de Micotoxinas',1),
-(2,'Deteccion de Metales Pesados',1),
-(3,'Deteccion de Plaguicidas Prohibidos',1),
-(4,'Deteccion de Marea Roja',1),
-(5,'Deteccion de Bacterias Nocivas',1);
+CREATE TABLE empleado(
+run_empleado VARCHAR(10) NOT NULL,
+
+nombre_empleado VARCHAR(45) NOT NULL,
+
+clave_empleado VARCHAR(45)NOT NULL,
+
+categoria_empleado VARCHAR(45) NOT NULL,
+
+activo_empleado INT NOT NULL,
+
+PRIMARY KEY (run_empleado))
+
+ENGINE=InnoDB;
+
+INSERT INTO empleado VALUES
+('12345678-9','Administrador','123','Administrador',1);
