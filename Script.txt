@@ -211,6 +211,8 @@ correo_mensaje VARCHAR(50) NOT NULL,
 
 mensaje_mensaje VARCHAR(200) NOT NULL,
 
+activo_mensaje INT NOT NULL,
+
 PRIMARY KEY (id_mensaje))
 
 ENGINE=InnoDB;
