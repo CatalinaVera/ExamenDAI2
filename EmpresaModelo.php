@@ -48,14 +48,14 @@
                 $sql = "SELECT * FROM empresa WHERE rut_empresa = ?";
                 $stm = $this->getConexion()->getPDO()->prepare($sql);
                 $stm -> execute(array($rut));
-                $r = $stm -> fetch(PDO::FETCH_OBJ);
+                $r = $stm -> fetch();
                 $empresa = new Empresa(
-                    $r->id_empresa,
-                    $r->rut_empresa,
-                    $r->nombre_empresa,
-                    $r->clave_empresa,
-                    $r->direccion_empresa,
-                    $r->activo_empresa);
+                    $r['id_empresa'],
+                    $r['rut_empresa'],
+                    $r['nombre_empresa'],
+                    $r['clave_empresa'],
+                    $r['direccion_empresa'],
+                    $r['activo_empresa']);
 
                 return $empresa;
             }
@@ -64,6 +64,31 @@
                 die($e->getMessage());
             }
         }
+
+        public function ObtenerEmpresaId($id)
+        {
+            try 
+            {
+                $sql = "SELECT * FROM empresa WHERE id_empresa = ?";
+                $stm = $this->getConexion()->getPDO()->prepare($sql);
+                $stm -> execute(array($id));
+                $r = $stm -> fetch(PDO::FETCH_OBJ);
+                $empresa = new Empresa(
+                    $r['id_empresa'],
+                    $r['rut_empresa'],
+                    $r['nombre_empresa'],
+                    $r['clave_empresa'],
+                    $r['direccion_empresa'],
+                    $r['activo_empresa']);
+
+                return $empresa;
+            }
+            catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+        }
+
 
         public function ObtenerEmpresaNombre($nomE)
         {
@@ -74,12 +99,12 @@
                 $stm -> execute(array($nomE));
                 $r = $stm -> fetch(PDO::FETCH_OBJ);
                 $empresa = new Empresa(
-                    $r->id_empresa,
-                    $r->rut_empresa,
-                    $r->nombre_empresa,
-                    $r->clave_empresa,
-                    $r->direccion_empresa,
-                    $r->activo_empresa);
+                    $r['id_empresa'],
+                    $r['rut_empresa'],
+                    $r['nombre_empresa'],
+                    $r['clave_empresa'],
+                    $r['direccion_empresa'],
+                    $r['activo_empresa']);
 
                 return $empresa;
             }

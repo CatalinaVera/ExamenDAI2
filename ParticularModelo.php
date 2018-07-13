@@ -69,6 +69,32 @@
             }
         }
 
+        public function ObtenerParticularId($id)
+        {
+            try 
+            {
+                $sql = "SELECT * FROM particular WHERE id_particular = ?";
+                $stm = $this->getConexion()->getPDO()->prepare($sql);
+                $stm -> execute(array($id));
+                $r = $stm -> fetch();
+                $particular = new Particular(
+                    $r->id_particular,
+                    $r->run_particular,
+                    $r->clave_particular,
+                    $r->nombre_particular,
+                    $r->direccion_particular,
+                    $r->correo_particular,
+                    $r->telefono_particular,
+                    $r->activo_particular);
+
+                return $particular;
+            }
+            catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+        }
+
         public function ObtenerParticularNombre($nom)
         {
             try 

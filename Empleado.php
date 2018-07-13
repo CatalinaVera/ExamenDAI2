@@ -17,9 +17,9 @@ class Empleado{
         $this -> setActivo_empleado($activo_empleado);
 	}
 
-	public function setRun_particular($run_particular)
+	public function setRun_empleado($run_empleado)
 	{
-		$this -> run_particular = $run_particular;
+		$this -> run_empleado = $run_empleado;
     }
 
     public function setNombre_empleado($nombre_empleado)

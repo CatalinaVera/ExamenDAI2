@@ -280,4 +280,11 @@ PRIMARY KEY (run_empleado))
 ENGINE=InnoDB;
 
 INSERT INTO empleado VALUES
-('12345678-9','Administrador','123','Administrador',1);
+('12345678-9','Administrador','123','Administrador',1),
+('12123456-7','Pablo Perez','123','Encargado de Recibir',1),
+('12987654-3','Francisca Perez','123','Encargado de Análisis',1);
+
+
+INSERT INTO contacto VALUES
+('12345678-9','Pablo','correo@correo.cl','981559325',1,1);
+

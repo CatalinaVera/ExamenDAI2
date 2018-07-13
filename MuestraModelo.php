@@ -65,23 +65,50 @@
                 $resultado = array();
                 $sql = "SELECT * FROM muestra";
                 $stm = $this->getConexion()->getPDO()->prepare($sql);
-                $stm -> execute();
-                foreach($stm -> fetchALL(PDO::FETCH_OBJ)as $r)
+                $stm -> execute(); 
+                foreach($stm -> fetchALL() as $r)
                 {
                     $muestra = new Muestra(
-                        $r->id_muestra,
-                        $r->fecha_muestra,
-                        $r->temp_muestra,
-                        $r->cantidad_muestra,
-                        $r->estado_muestra,
-                        $r->idemp_muestra,
-                        $r->idpar_muestra,
-                        $r->runemp_muestra,
-                        $r->activo_resultado);
-                    $resultado[]=$resultado;
+                        $r['id_muestra'],
+                        $r['fecha_muestra'],
+                        $r['temp_muestra'],
+                        $r['cantidad_muestra'],
+                        $r['estado_muestra'],
+                        $r['idemp_muestra'],
+                        $r['idpar_muestra'],
+                        $r['runemp_muestra'],
+                        $r['activo_muestra']);
+                    array_push($resultado,$muestra);
                 }
                 return $resultado;
             } 
+            catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+        }
+
+        public function ObtenerMuestraId($id)
+        {
+            try 
+            {
+                $sql = "SELECT * FROM muestra WHERE id_muestra = ?";
+                $stm = $this->getConexion()->getPDO()->prepare($sql);
+                $stm -> execute(array($id));
+                $r = $stm -> fetch();
+                $muestra = new Muestra(
+                        $r['id_muestra'],
+                        $r['fecha_muestra'],
+                        $r['temp_muestra'],
+                        $r['cantidad_muestra'],
+                        $r['estado_muestra'],
+                        $r['idemp_muestra'],
+                        $r['idpar_muestra'],
+                        $r['runemp_muestra'],
+                        $r['activo_muestra']);
+
+                return $muestra;
+            }
             catch (Exception $e) 
             {
                 die($e->getMessage());

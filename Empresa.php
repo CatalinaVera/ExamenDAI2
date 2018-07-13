@@ -34,7 +34,7 @@ class Empresa{
 		$this -> nombre_empresa = $nombre_empresa;
     }
     
-    public function setclave_empresa($clave_empresa)
+    public function setClave_empresa($clave_empresa)
 	{
 		$this -> clave_empresa = $clave_empresa;
     }

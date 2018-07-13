@@ -27,11 +27,11 @@
             { 
                 $sql = "INSERT INTO empleado VALUES(?,?,?,?,?)";
                 $this -> getConexion()->getPdo()->prepare($sql)->execute(array(
-                $emp -> getRun_empleado_emp(),
-                $emp -> getNombre_empleado_emp(),
-                $emp-> getClave_empleado_emp(),
-                $emp -> getCategoria_empleado_emp(),
-                $emp -> getActivo_empleado_emp()
+                $emp -> getRun_empleado(),
+                $emp -> getNombre_empleado(),
+                $emp-> getClave_empleado(),
+                $emp -> getCategoria_empleado(),
+                $emp -> getActivo_empleado()
                 ));
             }
             catch (Exception $e) 

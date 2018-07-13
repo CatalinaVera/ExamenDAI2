@@ -1,4 +1,10 @@
 <?php
+include_once('empleadoModelo.php');
+include_once('empleado.php');
+
+
+$modeloEmpleado = new empleadoModelo();
+$lista = $modeloEmpleado -> ListarEmpleado();
 
 if (isset($_POST['Ingresar']))
 {
@@ -14,11 +20,44 @@ if (isset($_POST['Ingresar']))
 	}
 	else
 	{
-		header("Status: 301 Moved Permanently");
-		header("Location: http://localhost/examendai2/usuarioNoExiste.html");
-		exit;
+
+        foreach($lista as $r)
+        {
+            $run = $r->getRun_empleado();
+            $clave = $r->getClave_empleado();
+            
+            if($run == $_POST['txtUsuario'] and $clave==$_POST['txtClave'])
+            {
+            	if($r->getCategoria_empleado()=='Encargado de Recibir')
+                 {
+                    session_start();
+					$username = $_POST['txtUsuario'];
+
+					$_SESSION['loggedin'] = true;
+			        $_SESSION['username'] = $username;
+
+					header("Location: http://localhost/examendai2/perfilRecibir.php");
+                 }
+                 else
+                 {
+                 	session_start();
+					$username = $_POST['txtUsuario'];
+
+					$_SESSION['loggedin'] = true;
+			        $_SESSION['username'] = $username;
+
+					header("Location: http://localhost/examendai2/perfilAnalisis.php");
+                 }
+            }
+            
+        }
+
+
 	}
 	
 }
+
+
+
 
 ?>

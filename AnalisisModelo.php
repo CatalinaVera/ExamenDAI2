@@ -65,5 +65,27 @@
                 die($e->getMessage());
             }
         }
+
+        public function ObtenerAnalisisrId($id)
+        {
+            try 
+            {
+                $sql = "SELECT * FROM analisis WHERE nombre_analisis = ?";
+                $stm = $this->getConexion()->getPDO()->prepare($sql);
+                $stm -> execute(array($id));
+                $r = $stm -> fetch();
+                $analisis = new Analisis(
+                        $r->id_analisis,
+                        $r->nombre_analisis,
+                        $r->activo_analisis);
+
+                return $analisis;
+            }
+            catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+        }
+       
     }
 ?>

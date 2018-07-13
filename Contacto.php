@@ -13,7 +13,7 @@ class Contacto{
 	{
 		$this -> setRun_contacto($run_contacto);
         $this -> setNombre_contacto($nombre_contacto);
-        $this -> setCorrreo_contacto($correo_contacto);
+        $this -> setCorreo_contacto($correo_contacto);
         $this -> setTelefono_contacto($telefono_contacto);
         $this -> setId_empresa_contacto($id_empresa_contacto);
         $this -> setActivo_contacto($activo_contacto);
