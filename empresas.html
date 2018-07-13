@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Personas</title>
+<title>Empresas</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,7 +24,7 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('https://i.ytimg.com/vi/GZdpzpimFHs/maxresdefault.jpg');
+    background-image: url("https://i.ytimg.com/vi/GZdpzpimFHs/maxresdefault.jpg");
     min-height: 100%;
 }
 
@@ -84,36 +84,36 @@ body, html {
 <!-- Container (Contact Section) -->
 <div class="w3-container" id="contact">
     <h2>REGISTRO EMPRESAS</h2>
-    <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    <form action="ControladorRegistro.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
         <div class="w3-center" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-red w3-xlarge w3-wide w3-animate-opacity">INGRESE LOS SIGUIENTES DATOS: <span class="w3-hide-small"></span> </span>
+        <span class="w3-center w3-padding-large w3-red w3-xlarge w3-wide w3-animate-opacity">INGRESE LOS SIGUIENTES DATOS: <span class="w3-hide-small"></span></span>
         </div>
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user" style="color:red"></i></div>
             <div class="w3-rest">
-              <input class="w3-input w3-border" name="txtRut" type="text" placeholder="Rut(12345698-9)">
+              <input class="w3-input w3-border" name="txtRutEmpresa" type="text" placeholder="Rut(12345698-9)">
             </div>
         </div>
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user" style="color:red"></i></div>
             <div class="w3-rest">
-              <input class="w3-input w3-border" name="txtNombre" type="text" placeholder="Nombre">
+              <input class="w3-input w3-border" name="txtNombreEmpresa" type="text" placeholder="Nombre">
             </div>
         </div>
         <div class="w3-row w3-section">
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-home" style="color:red"></i></div>
             <div class="w3-rest">
-              <input class="w3-input w3-border" name="txtDireccion" type="text" placeholder="Dirección">
+              <input class="w3-input w3-border" name="txtDireccionEmpresa" type="text" placeholder="Dirección">
             </div>
         </div>
          <div class="w3-row w3-section">
           <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user-secret" style="color:red"></i></div>
             <div class="w3-rest">
-              <input class="w3-input w3-border" name="txtClave" type="text" placeholder="Clave">
+              <input class="w3-input w3-border" name="txtClaveEmpresa" type="text" placeholder="Clave">
             </div>
         </div>
         <p class="w3-center">
-        <button class="w3-button w3-section w3-red w3-ripple"> Enviar </button>
+        <input class="w3-button w3-section w3-red w3-ripple" type="submit" name="registrarEmpresa" value="Enviar">
         </p>
     </form>
 

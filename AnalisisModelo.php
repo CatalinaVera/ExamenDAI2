@@ -1,6 +1,8 @@
 <?php
     include_once('Conexion.php');
     include_once('Analisis.php');
+    include_once('ParticularModelo.php');
+    include_once('EmpresaModelo.php');
 
     class AnalisisModelo
     {
@@ -37,6 +39,8 @@
                die($e->getMessage());
             }
         }
+
+
 
         public function ListarAnalisis()
         {

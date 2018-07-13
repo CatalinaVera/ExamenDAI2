@@ -123,11 +123,11 @@ body, html {
     <i class="fa fa-map-marker w3-text-red" style="width:30px"></i> Av. Marathon 1000 Ñuñoa, Santiago<br>
     <i class="fa fa-phone w3-text-red" style="width:30px"></i> Teléfono: (56 2) 257556 01<br>
     <i class="fa fa-envelope w3-text-red" style="width:30px"> </i> Email: contacto@gmail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nombre" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Mensaje" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">Enviar Mensaje</button></p>
+    <form action="ControladorRegistro.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" name="txtNombreMensaje" type="text" placeholder="Nombre" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" name="txtEmailMensaje" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" name="txtMensajeMensaje" type="text" placeholder="Mensaje" required name="Message"></p>
+      <p><input class="w3-button w3-black w3-padding-large" type="submit" name="registrarMensaje" value="Enviar Mensaje"></p>
     </form>
   </div>
 

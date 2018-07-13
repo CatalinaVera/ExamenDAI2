@@ -1,3 +1,10 @@
+<?php
+
+   session_start();
+
+     $username = $_SESSION['username'];
+
+ ?>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -13,9 +20,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 <body class="w3-theme-l5">
 
 <!-- Navbar -->
-<div class="w3-bar w3-red w3-border w3-large">
-  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-close"></i> CERRAR SESIÓN</a>
-</div>
+<form class="w3-container" action="controladorAdminPage.php" method="post">
+  
+    <input class="w3-button w3-block w3-red w3-section w3-padding" type="submit" name="Cerrar" value="CERRAR SESIÓN">
+</form>
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
@@ -38,7 +46,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
          <p class="w3-center"><img src="img_avatar4.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
          <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> Pedro Perez, Chile</p>
-         <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> Run: 12345678-9 </p>
+         <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> <?php if($username==null)
+                                                                              {
+                                                                                echo 'no esta';
+                                                                              } 
+                                                                              else
+                                                                              {
+                                                                                echo $username;
+                                                                              } ?>
          <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Administrador ISP</p>
 
         </div>
@@ -79,7 +94,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
         <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
       </div>
 
-      <form class="w3-container" action="/action_page.php">
+      <form class="w3-container" action="controladorAdminPage.php" method="post">
         <div class="w3-section">
           <label><b>Run</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese Run" name="txtRun" required>
@@ -92,7 +107,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           </select></br></br>
           <label><b>Clave</b></label>
           <input class="w3-input w3-border" type="text" placeholder="Ingrese Clave" name="txtClave" required></br>
-          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Registrar</button>
+          <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="Registrar">Registrar</input>
         </div>
       </form>
 
