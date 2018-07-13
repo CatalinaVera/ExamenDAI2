@@ -1,8 +1,27 @@
 <?php
+    include_once('empleadoModelo.php');
+    include_once('empleado.php');
+    include_once('particularModelo.php');
+    include_once('particular.php');
+    include_once('empresaModelo.php');
+    include_once('empresa.php');
 
-   session_start();
 
-     $username = $_SESSION['username'];
+    $modeloEmpleado = new empleadoModelo();
+    $lista = $modeloEmpleado -> ListarEmpleado();
+
+    $modeloParticular = new particularModelo();
+    $listaParticular = $modeloParticular -> ListarParticular();
+
+    $modeloEmpresa = new empresaModelo();
+    $listaEmpresa = $modeloEmpresa -> ListarEmpresa();
+
+    session_start();
+
+    $username = $_SESSION['username'];
+
+    $administrador = $modeloEmpleado->ObtenerEmpleado($username);
+    $lista = $modeloEmpleado -> ListarEmpleado();
 
  ?>
 <!DOCTYPE html>
@@ -45,16 +64,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
          <h4 class="w3-center">Mi Perfil</h4>
          <p class="w3-center"><img src="img_avatar4.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
          <hr>
-         <p><i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> Pedro Perez, Chile</p>
-         <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i> <?php if($username==null)
-                                                                              {
-                                                                                echo 'no esta';
-                                                                              } 
-                                                                              else
-                                                                              {
-                                                                                echo $username;
-                                                                              } ?>
-         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Administrador ISP</p>
+         <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i><?php echo $administrador->getNombre_empleado(); ?></br>
+         <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i><?php echo $administrador->getRun_empleado(); ?></br>
+         <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i><?php echo $administrador->getCategoria_empleado(); ?>
 
         </div>
       </div>
@@ -66,15 +78,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-address-card fa-fw w3-margin-right"></i> Funcionarios</button>
           <div id="Demo1" class="w3-hide w3-container">
             <p>
-              <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-address-card fa-fw w3-margin-right"></i>Agregar Funcionarios</button>
-              <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-address-card fa-fw w3-margin-right"></i>Funcionarios Activos</button>
+              <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-plus-square fa-fw w3-margin-right"></i>Agregar Funcionarios</button>
+              <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class=" fa fa-list fa-fw w3-margin-right"></i>Funcionarios Activos</button>
             </p>
           </div>
           <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Usuarios</button>
           <div id="Demo2" class="w3-hide w3-container">
             <p>
-              <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Empresas Activas</button>
-              <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i>Personas Activas</button>
+              <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class=" fa fa-list fa-fw w3-margin-right"></i>Empresas</button>
+              <button onclick="document.getElementById('id04').style.display='block'" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class=" fa fa-list fa-fw w3-margin-right"></i>Particulares</button>
             </p>
           </div>
         </div>      
@@ -113,6 +125,154 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+  <div id="id03" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+  
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="controladorAdminPage.php" method="post">
+        <table class="w3-table">
+        <tr>
+          <th>Rut</th>
+          <th>Nombre</th>
+          <th>Dirección</th>
+        </tr>
+        <?php 
+        foreach($listaEmpresa as $r)
+        {
+        ?>
+          <tr>
+            <td>
+              <?php
+               echo $r->getRut_empresa()
+              ?>
+            </td>
+            <td>
+              <?php echo $r->getNombre_empresa()?>
+            </td>
+            <td>
+              <?php echo $r->getDireccion_empresa()?>
+            </td>
+          </tr>
+        <?php 
+        }
+        ?>
+        </table> 
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:900px">
+  
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="controladorAdminPage.php" method="post">
+        <table class="w3-table">
+        <tr>
+          <th>Run</th>
+          <th>Nombre</th>
+          <th>Clave</th>
+          <th>Categoría</th>
+          <th>Opción</th>
+        </tr>
+        <?php 
+        foreach($lista as $r)
+        {
+        ?>
+          <tr>
+            <td>
+              <?php
+               echo $r->getRun_empleado()
+              ?>
+            </td>
+            <td>
+              <?php echo $r->getNombre_empleado()?>
+            </td>
+            <td>
+              <?php echo $r->getClave_empleado()?>
+            </td>
+            <td>
+              <?php echo $r->getCategoria_empleado()?>
+            </td>
+            <td>
+              <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="Registrar" value="<?php echo "Eliminar ".$r->getNombre_empleado()?>">
+            </td>
+          </tr>
+        <?php 
+        }
+        ?>
+        </table> 
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+  <div id="id04" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:800px">
+  
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="controladorAdminPage.php" method="post">
+        <table class="w3-table">
+        <tr>
+          <th>Run</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Correo</th>
+          <th>Telefono</th>
+        </tr>
+        <?php 
+        foreach($listaParticular as $r)
+        {
+        ?>
+          <tr>
+            <td>
+              <?php
+               echo $r->getRun_particular()
+              ?>
+            </td>
+            <td>
+              <?php echo $r->getNombre_particular()?>
+            </td>
+            <td>
+              <?php echo $r->getDireccion_particular()?>
+            </td>
+            <td>
+              <?php echo $r->getCorreo_particular()?>
+            </td>
+            <td>
+              <?php echo $r->getTelefono_particular()?>
+            </td>
+          </tr>
+        <?php 
+        }
+        ?>
+        </table> 
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id04').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
       </div>
 
     </div>
